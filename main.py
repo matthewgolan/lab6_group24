@@ -24,6 +24,13 @@ while keep_looping:
         for char in original_password:
             char = int(char)
             char += 3
+            # Accounts for two-digit numbers
+            if char == 10:
+                char = 0
+            elif char == 11:
+                char = 1
+            elif char == 12:
+                char = 2
             char = str(char)
             encoded_password += char
         print('Your password has been encoded and stored! \n')
