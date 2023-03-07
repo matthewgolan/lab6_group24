@@ -8,6 +8,19 @@ def print_menu():
 3. Quit
 ''')
 
+def decoder(encoded_password):
+    original_password = ''
+    new_element = ''
+    for element in encoded_password:
+        if int(element) in range(9, 2, -1):
+            new_element = int(element) - 3
+        elif int(element) == 2:
+            new_element = 9
+        elif int(element) == 1:
+            new_element = 8
+        original_password += str(new_element)
+    return original_password
+
 # Assigns variable as true so program enters loop.
 keep_looping = True
 
@@ -35,7 +48,8 @@ while keep_looping:
             encoded_password += char
         print('Your password has been encoded and stored! \n')
     elif user_selection == 2:
-        pass
+        original_password = decoder(encoded_password)
+        print(f'The encoded password is {encoded_password}, and the original password is {original_password}')
     # Exits loop when user selects 3.
     else:
         keep_looping = False
