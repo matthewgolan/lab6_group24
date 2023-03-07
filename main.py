@@ -1,4 +1,6 @@
+# Defines function for use in loop.
 def print_menu():
+    """Prints program menu"""
     print('''Menu
 -------------
 1. Encode
@@ -6,15 +8,19 @@ def print_menu():
 3. Quit
 ''')
 
-
+# Assigns variable as true so program enters loop.
 keep_looping = True
 
 while keep_looping:
+    # Accesses the print function.
     print_menu()
     user_selection = int(input('Please enter an option: '))
+    # Initiates encoding processes.
     if user_selection == 1:
         original_password = input('Please enter your password to encode: ')
+        # Creates an empty string for use in loop.
         encoded_password = ''
+        # Converts each character to an integer, adds three, converts back to a string, and adds to encoded_password.
         for char in original_password:
             char = int(char)
             char += 3
@@ -23,5 +29,6 @@ while keep_looping:
         print('Your password has been encoded and stored! \n')
     elif user_selection == 2:
         pass
+    # Exits loop when user selects 3.
     else:
         keep_looping = False
